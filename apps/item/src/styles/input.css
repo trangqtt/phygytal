@@ -1,0 +1,42 @@
+/* div.text-input input.MuiFilledInput-input {
+  border-radius: 4px;
+  background-color: transparent;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 22px;
+  width: 100%;
+  border: 1px solid;
+  border-radius: 4px;
+  color: #BFBFBF;
+  border-image-source: linear-gradient(
+      318.03deg,
+      #999999 1.7%,
+      rgba(153, 153, 153, 0) 50.33%
+    ),
+    linear-gradient(142.46deg, #999999 -2.97%, rgba(153, 153, 153, 0) 45.01%);
+  padding: 18px;
+  box-shadow: 0px 0px 24px 0px #00000029;
+  background-color: transparent;
+} */
+
+
+.text-input input {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 22px;
+  width: 100%;
+  border: 1px solid;
+  border-radius: 4px;
+  color: #BFBFBF;
+  border-image-source: linear-gradient(
+      318.03deg,
+      #999999 1.7%,
+      rgba(153, 153, 153, 0) 50.33%
+    ),
+    linear-gradient(142.46deg, #999999 -2.97%, rgba(153, 153, 153, 0) 45.01%);
+  padding: 16px;
+  box-shadow: 0px 0px 24px 0px #00000029;
+  background-color: transparent;
+}

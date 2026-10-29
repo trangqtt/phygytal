@@ -1,0 +1,125 @@
+{
+  "common": {
+    "cancelBtn": "Cancel",
+    "saveBtn": "Save",
+    "logoutBtn": "Log out"
+  },
+  "nav": {
+    "home": "Home",
+    "story": "Story",
+    "instruction": "Brewing Instruction",
+    "aboutLeJ": "About Le J’",
+    "formula": "Formula",
+    "roast": "Roast"
+  },
+  "auth": {
+    "signInWithGoogle": "Sign in with Google",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "withGoogle": "with Google",
+    "forgotPassword": "Forgot password?",
+    "or": "or",
+    "back": "Back",
+    "recover": "Recover"
+  },
+  "general": {
+    "ownedBy": "Owned by",
+    "claim": "Claim",
+    "vietnam": "Vietnam",
+    "buyToReveal": "Buy me",
+    "package": "Item",
+    "limitedEdition": "Limited Edition",
+    "logout": "Log out",
+    "detail": "Detail",
+    "collapse": "Collapse",
+    "nft": "NFT",
+    "craftsman": "Craftsman",
+    "skip": "Skip",
+    "explore": "explore",
+    "information": "More",
+    "winnerPrize": "First prize of the contest",
+    "secondPrize": "Second prize of the contest",
+    "thirdPrize": "Third prize of the contest",
+    "consolationPrize": "Consolation prize of the contest",
+    "productMakingProcess": "Product making process",
+    "prizes": "Prizes",
+    "typicalWork": "Typical work",
+    "experience": "Experience",
+    "artwork": "Artworks",
+    "contact": "Contact",
+    "continue": "Continue",
+    "geographicalLocation": "Geographical Location",
+    "historyBegin": "History Begin",
+    "culturalInterference": "Cultural Interference",
+    "origin": "Origin",
+    "clarity": "Clarity",
+    "color": "Color",
+    "rarity": "Rarity",
+    "characteristic": "Characteristic",
+    "aboutStone": "About stone",
+    "phone": "Phone",
+    "email": "Email",
+    "author": "Author",
+    "artifactInformation": "Artifact Information",
+    "productInformation": "Product Information",
+    "highlights": "Highlights",
+    "introduceAboutDaNonNuoc": "Introduction to Non Nuoc Stone Fine Arts Village"
+  },
+  "next": {
+    "story": "Explore story",
+    "instruction": "Instruction"
+  },
+  "page": {
+    "story": {
+      "fact1": "Vietnam is the second-largest coffee exporter globally",
+      "fact2": "Coffee cultivation area is about approximately 600,000 hectares",
+      "fact3": "Within this vast expanse, Robusta dominates, covering around 93% of the cultivated land, while Arabica and Liberica combined account for the remaining 7%.",
+      "fact4": "Spanning over 10 hectares, the farm cultivates various coffee varieties such as Catimor, TH1, THA1, and Yellow Catuai, specifically catering to both domestic and international markets with Specialty-grade standards. The coffee at Radar Farm benefits from a semi-organic fertilization approach, implemented beneath the protective canopy of pine forests. Moreover, the farm employs advanced processing techniques that enable precise and synchronized control over the fermentation process.",
+      "height": "Height",
+      "area": "Area",
+      "expand": "Expand"
+    },
+    "roast": {
+      "fact1": "Coffee is light roasted",
+      "acidity": "Acidity",
+      "sweet": "Sweet",
+      "bitter": "Bitter",
+      "flavor": "Flavor"
+    },
+    "instruction": {
+      "recommend": "Recommend",
+      "lejRecipe": "Le J's recipe",
+      "coffeeGrind": "Coffee Grind",
+      "coffeeSize": "Coffee Size",
+      "waterTemperature": "Water temperature",
+      "waterVolume": "Water volume",
+      "waterHardness": "Water hardness",
+      "totalBrewingTime": "Total brewing time",
+      "brewingTime": "Brewing time",
+      "extractionPhases": "Extraction Phases",
+      "phase1": "Bloom with 30 grams of water.",
+      "phase2": "Pour up to 120g of water (add 90g of water)",
+      "phase3": "Pour up to 180g of water (add 60g of water)",
+      "phase4": "Pour up to 240g of water (add 60g of water)",
+      "video": "Instruction video",
+      "temperature": "Temperature",
+      "dosing": "Dosing",
+      "coffeeYield": "Yield",
+      "maxPressure": "Max Pressure"
+    }
+  },
+  "profile": {
+    "title": "Profile Settings",
+    "userName": "User Name",
+    "passwordChange": "Edit Password",
+    "walletAddress": "Wallet Address",
+    "viewWalleyKey": "View Private Key",
+    "userCurrentPassword": "Current Password",
+    "userNewPassword": "New Password",
+    "changePassword": "Change Password",
+    "errorMessage": {
+      "matchesTheOldPassword": "Matches the old password",
+      "passwordContainWhiteSpace": "Password cannot contain spaces"
+    }
+  }
+}

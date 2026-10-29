@@ -1,0 +1,31 @@
+# Step 0: Setup base
+FROM node:18-alpine AS base
+RUN corepack enable
+
+# Step 1: Install dependencies
+FROM base AS deps
+WORKDIR /app
+COPY package.*json *lock* /app/
+RUN yarn install
+
+# Step 2: Build
+FROM deps AS build
+COPY . .
+COPY --from=deps /app/node_modules ./node_modules
+RUN yarn build
+
+# Step 3: Prepare runtime env
+FROM base AS runtime
+WORKDIR /app/
+# Don't run production as root
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+USER nextjs
+
+COPY --from=build --chown=nextjs:nodejs /app/*next.config.js /app/*.ts /app/*.json /app/*.html ./
+COPY --from=deps --chown=nextjs:nodejs /app/node_modules ./node_modules
+COPY --from=build --chown=nextjs:nodejs /app/public ./public
+COPY --from=build --chown=nextjs:nodejs /app/dist ./dist
+
+EXPOSE 3000
+CMD [ "yarn", "start"]

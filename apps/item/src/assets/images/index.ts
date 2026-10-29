@@ -1,0 +1,5 @@
+export const TombInfo = "https://assets.nomion.io/item-website/tomb_info.webp"
+export const TombCareerLife = "https://assets.nomion.io/item-website/tomb_career_life.webp"
+export const TombTimeline = "https://assets.nomion.io/item-website/tomb_timeline.webp"
+export const TombArea = "https://assets.nomion.io/item-website/tomb_area.webp"
+export const TombLibrary = "https://assets.nomion.io/item-website/tomb_library.webp"

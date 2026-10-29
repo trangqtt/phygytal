@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Poppins', sans-serif;
+  src: url('/fonts/poppins/Poppins-Light.ttf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Poppins', sans-serif;
+  src: url('/fonts/poppins/Poppins-Regular.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Poppins', sans-serif;
+  src: url('/fonts/poppins/Poppins-Medium.ttf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Poppins', sans-serif;
+  src: url('/fonts/poppins/Poppins-SemiBold.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Poppins', sans-serif;
+  src: url('/fonts/poppins/Poppins-Bold.ttf');
+  font-weight: 700;
+}
+
+body,
+html * {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  /* font-family: sousrce-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; */
+}
+
+@layer base {
+  html {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+/* ::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+} */
+
+input[type='radio']:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: 2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: 2px;
+  left: -1px;
+  position: relative;
+  background-color: #beff68;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+/* .MuiButton-root {
+  background: linear-gradient(to right, rgba(100, 178, 255, 1), rgba(180, 89, 252, 1));
+  font-weight: bold !important;
+} */
+
+.Mui-disabled {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.ql-container {
+  height: 200px !important;
+}
+
+.custom-select {
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 9px;
+  border-color: rgba(0, 0, 0, 0.23);
+}

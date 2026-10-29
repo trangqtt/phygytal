@@ -1,0 +1,191 @@
+@import url(./input.css);
+@import url(./header.css);
+@import url(./stars.css);
+@import url(./swiper.css);
+@import url(./loader.css);
+@import url(./pages/about.css);
+@import url(./pages/info.css);
+@import url(./pages/craftsmen.css);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .dynamic-width {
+    width: var(--width);
+  }
+}
+
+.Toastify__toast-body div {
+  color: black;
+}
+
+.main {
+  background-color: black;
+}
+
+:root {
+  --swiper-pagination-color: white;
+}
+
+html * {
+  color: white;
+  font-family: var(--font-svnPoppins);
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.craftmen-quote p {
+  color: #bfbfbf !important;
+}
+
+.ql-align-justify {
+  text-align: justify;
+  > img {
+    margin: auto;
+  }
+}
+
+.ql-align-center {
+  text-align: center;
+
+  > img {
+    margin: auto;
+  }
+}
+
+.ql-align-right {
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ql-align-center {
+  >img {
+    margin: auto;
+  }
+}
+
+.MuiModal-backdrop {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+.star-background {
+  height: 100vh;
+  width: 100%;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: auto;
+}
+
+.loader {
+  animation: loading 1.5s linear infinite;
+}
+
+.loader:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.loader:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.loader:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes loading {
+  0%,
+  100% {
+    transform: translateY(5px);
+  }
+  50% {
+    transform: translateY(-10px);
+    background-color: #ffffff;
+    scale: 1.1;
+  }
+}
+
+/* @import '@radix-ui/colors/black-alpha.css';
+@import '@radix-ui/colors/mauve.css';
+@import '@radix-ui/colors/violet.css'; */
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.winner {
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 228, 133, 1),
+    rgba(255, 199, 0, 1),
+    rgba(250, 232, 167, 1),
+    rgba(255, 199, 0, 1),
+    rgba(255, 231, 147, 1)
+  );
+  box-shadow: 0px 0px 12px 0px rgba(255, 199, 0, 0.6);
+}
+
+.second {
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1),
+    rgba(193, 193, 193, 1),
+    rgba(248, 248, 248, 1),
+    rgba(121, 121, 121, 1),
+    rgba(238, 238, 238, 1)
+  );
+  box-shadow: 0px 0px 12px 0px rgba(255, 255, 255, 0.6);
+}
+
+.third {
+  background-image: linear-gradient(
+    to right,
+    rgba(223, 194, 151, 1),
+    rgba(208, 151, 64, 1),
+    rgba(223, 209, 189, 1),
+    rgba(205, 152, 73, 1),
+    rgba(227, 203, 167, 1)
+  );
+  box-shadow: 0px 0px 12px 0px rgba(218, 172, 118, 0.6);
+}
+
+.fourth {
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1),
+    rgba(193, 193, 193, 1),
+    rgba(248, 248, 248, 1),
+    rgba(121, 121, 121, 1),
+    rgba(238, 238, 238, 1)
+  );
+  box-shadow: 0px 0px 12px 0px rgba(255, 255, 255, 0.6);
+}
+
+.linear-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.3) 46.86%,
+    #000000 100%
+  );
+}
+
+.tab-list {
+  height: calc(100% - 48px);
+}
+
+.MuiDialog-root {
+  max-width: 600px;
+  margin: auto;
+}
+
+
+model-viewer {
+  width: 100%;
+  height: 100%;
+}

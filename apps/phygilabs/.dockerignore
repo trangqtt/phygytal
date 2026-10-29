@@ -1,0 +1,9 @@
+#nodejs 
+.next
+dist
+node_modules
+
+#git
+.git
+.gitignore
+*.md

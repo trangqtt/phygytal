@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .dynamic-width {
+    width: var(--width);
+  }
+}
+
+@font-face {
+  font-family: "work-sans";
+  src: url("/fonts/work-sans/WorkSans-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "work-sans";
+  src: url("/fonts/work-sans/WorkSans-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "work-sans";
+  src: url("/fonts/work-sans/WorkSans-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "work-sans";
+  src: url("/fonts/work-sans/WorkSans-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "work-sans";
+  src: url("/fonts/work-sans/WorkSans-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "space-grotesk";
+  src: url("/fonts/space-grotesk/SpaceGrotesk-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "space-grotesk";
+  src: url("/fonts/space-grotesk/SpaceGrotesk-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "space-grotesk";
+  src: url("/fonts/space-grotesk/SpaceGrotesk-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "space-grotesk";
+  src: url("/fonts/space-grotesk/SpaceGrotesk-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "space-grotesk";
+  src: url("/fonts/space-grotesk/SpaceGrotesk-Bold.ttf");
+  font-weight: 700;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+/* Hide scrollbar for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: black;
+}
+
+.main {
+  background-color: black;
+}
+
+:root {
+  --swiper-pagination-color: white;
+}
+
+html * {
+  color: #f0f0f0;
+  font-family: var(--font-spaceGrotesk);
+}
+
+.linear-background {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(4, 30, 66, 0.7) 100%,
+    #000 100%
+  );
+}
+
+header {
+  background-color: rgba(4, 30, 66, 0.7);
+  /* background-color: #041e42; */
+  backdrop-filter: blur(30px);
+}
+
+.leader-item {
+  box-shadow: 0 4px 8px rgba(0,0,0,.16);
+}

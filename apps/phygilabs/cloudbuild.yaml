@@ -1,0 +1,61 @@
+steps:
+  - id: Pull latest Image
+    name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args:
+      - '-c'
+      - docker pull ${_IMAGE_NAME}:${_IMAGE_TAG} || exit 0
+  - id: Create .env file
+    name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args:
+      - '-c'
+      - |
+        cat << EOF > .env
+        NEXT_PUBLIC_GOOGLE_ANALYTICS=${_NEXT_PUBLIC_GOOGLE_ANALYTICS}
+  - id: Docker Build
+    name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - '-t'
+      - '${_IMAGE_NAME}:${_IMAGE_TAG}'
+      - '--cache-from'
+      - '${_IMAGE_NAME}:${_IMAGE_TAG}'
+      - .
+  - id: Docker Push
+    name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - '${_IMAGE_NAME}:${_IMAGE_TAG}'
+  - id: Apply Deploy
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - '${_APP_NAME}-${_ENV}'
+      - '--image'
+      - '${_IMAGE_NAME}:${_IMAGE_TAG}'
+      - '--region'
+      - '${_REGION}'
+      - '--port'
+      - '${_PORT}'
+
+images:
+  - ${_IMAGE_NAME}:${_IMAGE_TAG}
+
+options:
+  dynamicSubstitutions: true
+
+tags:
+  - ${_APP_NAME}
+  - ${_ENV}
+
+substitutions:
+  _IMAGE_NAME: asia-southeast1-docker.pkg.dev/${PROJECT_ID}/${_ENV}/${_APP_NAME}
+  _IMAGE_TAG: latest
+  _ENV: ${BRANCH_NAME}
+  _APP_NAME: phygilabs-website
+  _REGION: asia-southeast2
+  _PORT: "3000"
+  _NEXT_PUBLIC_GOOGLE_ANALYTICS: ${_NEXT_PUBLIC_GOOGLE_ANALYTICS}

@@ -1,0 +1,35 @@
+.mySwiper.swiper {
+  height: 100%;
+  padding-bottom: 120px;
+  max-height: 100vh;
+}
+
+.swiper {
+  z-index: 20 !important;
+}
+
+.swiper-pagination-bullet {
+  border-radius: 100px !important;
+  background-color: #FFFFFF !important;
+}
+
+@media (max-width: 480px) {
+  .swiper-pagination-bullet {
+    display: none !important;
+  }
+}
+
+/* .swiper-pagination-bullets {
+  display: flex !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+} */
+
+.swiper-pagination {
+  /* top: 525px !important; */
+  bottom: auto !important;
+}
+
+.swiper-scrollbar-drag{
+  background-color: rgba(240, 240, 240, 1) !important;
+}

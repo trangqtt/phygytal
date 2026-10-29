@@ -1,0 +1,36 @@
+import * as React from "react";
+
+const SearchFavorite2LinearIcon = (props:any) => (
+  <svg
+    width="1em"
+    height="1em"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M21 11.5C21 16.75 16.75 21 11.5 21C6.25 21 2 16.75 2 11.5C2 6.25 6.25 2 11.5 2"
+      stroke="#292D32"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M22 22L20 20"
+      stroke="#292D32"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M14.4999 6.13C14.1499 5.03 14.5599 3.66 15.7199 3.29C16.3299 3.09 17.0799 3.26 17.5099 3.85C17.9099 3.24 18.6899 3.1 19.2899 3.29C20.4499 3.66 20.8599 5.03 20.5099 6.13C19.9599 7.88 18.0399 8.79 17.5099 8.79C16.9699 8.79 15.0699 7.9 14.4999 6.13Z"
+      stroke="#292D32"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export default SearchFavorite2LinearIcon;

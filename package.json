@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "scripts": {
+    "build:marketplace": "turbo run build --filter marketplace",
+    "dev:marketplace": "turbo run dev --filter marketplace",
+    "build:nomion": "turbo run build --filter nomion",
+    "dev:nomion": "turbo run dev --filter nomion",
+    "build:admin": "turbo run build --filter admin",
+    "dev:admin": "turbo run dev --filter admin",
+    "build:item": "turbo run build --filter item",
+    "dev:item": "turbo run dev --filter item",
+    "build:phygilabs": "turbo run build --filter phygilabs",
+    "dev:phygilabs": "turbo run dev --filter phygilabs",
+    "build:tamchan": "turbo run build --filter tamchan",
+    "dev:tamchan": "turbo run dev --filter tamchan",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "eslint": "^8.48.0",
+    "eslint-config-turbo": "^1.10.12",
+    "prettier": "^3.0.3",
+    "tsconfig": "workspace:*",
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@8.6.10",
+  "name": "nomion-fe"
+}

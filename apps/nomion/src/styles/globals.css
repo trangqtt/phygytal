@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url(./input.css);
+@import url(./swiper.css);
+@import url(./pages/about.css);
+@import url(./pages/info.css);
+
+@layer utilities {
+  .dynamic-width {
+    width: var(--width);
+  }
+}
+
+/* @font-face {
+  font-family: "work-sans";
+  src: url("/fonts/work-sans/WorkSans-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "work-sans";
+  src: url("/fonts/work-sans/WorkSans-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "work-sans";
+  src: url("/fonts/work-sans/WorkSans-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "work-sans";
+  src: url("/fonts/work-sans/WorkSans-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "work-sans";
+  src: url("/fonts/work-sans/WorkSans-Bold.ttf");
+  font-weight: 700;
+} */
+
+@font-face {
+  font-family: "space-grotesk";
+  src: url("/fonts/space-grotesk/SpaceGrotesk-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "space-grotesk";
+  src: url("/fonts/space-grotesk/SpaceGrotesk-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "space-grotesk";
+  src: url("/fonts/space-grotesk/SpaceGrotesk-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "space-grotesk";
+  src: url("/fonts/space-grotesk/SpaceGrotesk-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "space-grotesk";
+  src: url("/fonts/space-grotesk/SpaceGrotesk-Bold.ttf");
+  font-weight: 700;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+/* Hide scrollbar for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: black
+}
+
+:root {
+  --swiper-pagination-color: white;
+}
+
+html * {
+  color: #f0f0f0;
+  font-family: var(--font-spaceGrotesk);
+}
+
+.MuiModal-backdrop {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+.craftsmen-dialog-paper{
+  border-radius: 12px !important;
+  background-color: #1F1F1F !important;
+}
+
+.product-dialog-paper {
+  background-color: black !important;
+  padding-top: 80px !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 28px !important;
+}
+
+.craftmen-quote p {
+  color: #bfbfbf;
+  font-weight: 400;
+}
+
+.craftmen-quote span {
+  color: #bfbfbf;
+  font-weight: 400;
+}
+
+model-viewer {
+  width: 100%;
+  height: 100%;
+}
+
+video::-webkit-media-controls {
+  display: none;
+}

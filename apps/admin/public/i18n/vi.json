@@ -1,0 +1,29 @@
+{
+  "navigator.dashboard": "Trang chủ",
+  "navigator.events": "Sự kiện",
+  "navigator.track-points": "Định tuyến",
+  "navigator.notifications": "Thông báo",
+  "navigator.reporting-tool": "Thống kê",
+  "navigator.image-classify": "Phân loại hình ảnh",
+
+  "event.list": "Danh sách sự kiện",
+  "event.list.table.No": "STT",
+  "event.list.table.Name": "Tên",
+  "event.list.table.Type": "Loại",
+  "event.list.table.StartTime": "Thời gian bắt đầu",
+  "event.list.table.EndTime": "Thời gian kết thúc",
+  "event.list.table.Status": "Trạng thái",
+  "event.list.table.Actions": "Hành động",
+  "event.type.all": "Tất cả",
+  "event.type.run": "Cự ly",
+  "event.type.challenge": "Thử thách",
+  "event.type.trail": "Địa hình",
+  "event.status.upcoming": "Sắp diễn ra",
+  "event.status.happening": "Đang diễn ra",
+  "event.status.ended": "Đã kết thúc",
+
+  "button.create": "Tạo",
+  "button.options": "Tuỳ chọn",
+
+  "pagination.rows-per-page": "Số dòng mỗi trang"
+}

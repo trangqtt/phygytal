@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: _APP_NAME
+  labels:
+    components: frontend
+    app: _APP_NAME
+spec:
+  selector:
+    matchLabels:
+      app: _APP_NAME
+  revisionHistoryLimit: 5
+  template:
+    metadata:
+      name:
+        _APP_NAME
+      labels:
+        app: _APP_NAME
+    spec:
+      containers:
+        - name: _APP_NAME
+          image: asia-southeast1-docker.pkg.dev/phygital-388705/_ENV/_APP_NAME:_IMAGE_TAG
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          resources:
+            limits:
+              cpu: _APP_CPU
+              memory: _APP_RAM
+            requests:
+              cpu: _APP_CPU
+              memory: _APP_RAM
+      restartPolicy: Always

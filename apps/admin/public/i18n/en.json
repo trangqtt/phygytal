@@ -1,0 +1,29 @@
+{
+  "navigator.dashboard": "Dashboard",
+  "navigator.events": "Events",
+  "navigator.track-points": "Track Points",
+  "navigator.notifications": "Notifications",
+  "navigator.reporting-tool": "Reports",
+  "navigator.image-classify": "Image Classify",
+
+  "event.list": "Event List",
+  "event.list.table.No": "No",
+  "event.list.table.Name": "Name",
+  "event.list.table.Type": "Type",
+  "event.list.table.StartTime": "Start Time",
+  "event.list.table.EndTime": "End Time",
+  "event.list.table.Status": "Status",
+  "event.list.table.Actions": "Actions",
+  "event.type.all": "All",
+  "event.type.run": "Run",
+  "event.type.challenge": "Challenge",
+  "event.type.trail": "Trail",
+  "event.status.upcoming": "Upcoming",
+  "event.status.happening": "Happening",
+  "event.status.ended": "Ended",
+
+  "button.create": "Create",
+  "button.options": "Options",
+
+  "pagination.rows-per-page": "Rows per page"
+}

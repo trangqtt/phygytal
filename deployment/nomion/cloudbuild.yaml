@@ -1,0 +1,111 @@
+steps:
+  - id: Pull latest Image
+    name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args:
+      - '-c'
+      - docker pull ${_IMAGE_NAME}:${_IMAGE_TAG} || exit 0
+  - id: Create .env file
+    name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args:
+      - '-c'
+      - |
+        cat << EOF > ./apps/nomion/.env
+        NEXT_PUBLIC_API_BASE_URL=${_NEXT_PUBLIC_API_BASE_URL}
+        NEXT_PUBLIC_WEB_URL=${_NEXT_PUBLIC_WEB_URL}
+        NEXT_PUBLIC_ITEM_URL=${_NEXT_PUBLIC_ITEM_URL}
+        NEXT_PUBLIC_GG_MAP_API=
+        NEXT_PUBLIC_MODE=${_NEXT_PUBLIC_MODE}
+        NEXT_PUBLIC_GOOGLE_ANALYTICS=${_NEXT_PUBLIC_GOOGLE_ANALYTICS}
+        EOF
+  - id: Create credential.json
+    name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args:
+      - '-c'
+      - |
+        cat << EOF > ./apps/nomion/firebase_config.json
+        {
+          "apiKey": "${_API_KEY}",
+          "authDomain": "${_AUTH_DOMAIN}",
+          "projectId": "${_PROJECT_ID}",
+          "storageBucket": "${_STORAGE_BUCKET}",
+          "messagingSenderId": "${_MEASSAGING_SENDER_ID}",
+          "appId": "${_APP_ID}",
+          "measurementId": "${_MEASUREMENT_ID}"
+        }
+        EOF
+  - id: Replace Deployment Variables
+    name: ubuntu
+    args:
+      - sed
+      - '-i'
+      - >-
+        s/_ENV/${_ENV}/g; 
+        s/_APP_CPU/${_APP_CPU}/g;
+        s/_APP_RAM/${_APP_RAM}/g;
+        s/_APP_NAME/${_APP_NAME}/g;
+        s/_IMAGE_TAG/${_IMAGE_TAG}/g
+      - '${_K8S_YAML_PATH}'
+  - id: Docker Build
+    name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - '--build-arg'
+      - 'APP=nomion'
+      - '-f' 
+      - 'Dockerfile'
+      - '-t'
+      - '${_IMAGE_NAME}:${_IMAGE_TAG}'
+      - '--cache-from'
+      - '${_IMAGE_NAME}:${_IMAGE_TAG}'
+      - .
+  - id: Docker Push
+    name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - '${_IMAGE_NAME}:${_IMAGE_TAG}'
+  - id: Prepare Deploy
+    name: gcr.io/cloud-builders/gke-deploy
+    args:
+      - prepare
+      - '--filename=${_K8S_YAML_PATH}'
+      - '--image=${_IMAGE_NAME}:${_IMAGE_TAG}'
+      - '--app=${_APP_NAME}'
+      - '--version=${SHORT_SHA}'
+      - '--namespace=${_ENV}'
+      - '--create-application-cr'
+      - >-
+        --links="Build
+        details=https://console.cloud.google.com/cloud-build/builds/${BUILD_ID}?project=${PROJECT_ID}"
+      - '--output=output'
+  - id: Apply Deploy
+    name: gcr.io/cloud-builders/gke-deploy
+    args:
+      - apply
+      - '--filename=output/expanded'
+      - '--cluster=${_GKE_CLUSTER}'
+      - '--location=${_GKE_LOCATION}'
+      - '--namespace=${_ENV}'
+
+images:
+  - ${_IMAGE_NAME}:${_IMAGE_TAG}
+
+options:
+  dynamicSubstitutions: true
+
+tags:
+  - ${_APP_NAME}
+  - ${_ENV}
+
+substitutions:
+  _IMAGE_NAME: asia-southeast1-docker.pkg.dev/${PROJECT_ID}/${_ENV}/${_APP_NAME}
+  _IMAGE_TAG: latest
+  _ENV: ${BRANCH_NAME}
+  _APP_NAME: nomion-frontend
+  _K8S_YAML_PATH: ./deployment/nomion/k8s/deployment.yaml
+  _GKE_LOCATION: asia-southeast1
+  _GKE_CLUSTER: phygital
+  _APP_CPU: '0.25'
+  _APP_RAM: '0.5G'

@@ -1,0 +1,52 @@
+{
+  "data": {
+    "light": {
+      "id": "T_001",
+      "name": "Light",
+      "colors": {
+        "body": "#f2f2f2",
+        "sideBody": "#f2f2f2",
+        "text": "#000000",
+        "highlight": "#29c770",
+        "mainColor": "#357266",
+        "navbarText": "#797882",
+        "darkColor": "#333",
+        "black": "#000",
+        "white": "#fff",
+        "button": {
+          "text": "#FFFFFF",
+          "background": "#000000"
+        },
+        "link": {
+          "text": "teal",
+          "opacity": 1
+        }
+      },
+      "font": "Open Sans"
+    },
+    "seaWave": {
+      "id": "T_002",
+      "name": "Sea Wave",
+      "colors": {
+        "body": "#9be7ff",
+        "sideBody": "#90caf9",
+        "text": "#0d47a1",
+        "highlight": "#29c770",
+        "mainColor": "#357266",
+        "navbarText": "#ffffff",
+        "darkColor": "#333",
+        "black": "#000",
+        "white": "#fff",
+        "button": {
+          "text": "#ffffff",
+          "background": "#0d47a1"
+        },
+        "link": {
+          "text": "#0d47a1",
+          "opacity": 0.8
+        }
+      },
+      "font": "Open Sans"
+    }
+  }
+}

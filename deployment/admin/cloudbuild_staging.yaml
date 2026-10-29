@@ -1,0 +1,101 @@
+steps:
+  - id: Pull latest Image
+    name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args:
+      - '-c'
+      - docker pull ${_IMAGE_NAME}:${_IMAGE_TAG} || exit 0
+  - id: Create .env file
+    name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args:
+      - '-c'
+      - |
+        cat << EOF > ./apps/admin/.env
+        VITE_ADMIN_BACKEND_URL="${_VITE_ADMIN_BACKEND_URL}"
+        VITE_HOST="${_VITE_HOST}"
+        VITE_SHOW_NFT=1
+        VITE_ITEM_BASE_URL="${_VITE_ITEM_BASE_URL}"
+        EOF
+  - id: Create firebase_config.json
+    name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args:
+      - '-c'
+      - |
+        cat << EOF > ./apps/admin/firebase_config.json
+        {
+          "apiKey": "${_API_KEY}",
+          "authDomain": "${_AUTH_DOMAIN}",
+          "projectId": "${_PROJECT_ID}",
+          "storageBucket": "${_STORAGE_BUCKET}",
+          "messagingSenderId": "${_MEASSAGING_SENDER_ID}",
+          "appId": "${_APP_ID}",
+          "measurementId": "${_MEASUREMENT_ID}"
+        }
+        EOF
+  - id: Replace Deployment Variables
+    name: ubuntu
+    args:
+      - sed
+      - '-i'
+      - >-
+        s/_ENV/${_ENV}/g; 
+        s/_APP_CPU/${_APP_CPU}/g;
+        s/_APP_RAM/${_APP_RAM}/g;
+        s/_APP_NAME/${_APP_NAME}/g;
+        s/_IMAGE_TAG/${_IMAGE_TAG}/g;
+        s/_DOMAIN/${_DOMAIN}/g;
+      - '${_K8S_YAML_PATH}'
+  - id: Docker Build
+    name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - '-f' 
+      - 'Dockerfile.admin'
+      - '-t'
+      - '${_IMAGE_NAME}:${_IMAGE_TAG}'
+      - '--cache-from'
+      - '${_IMAGE_NAME}:${_IMAGE_TAG}'
+      - .
+  - id: Docker Push
+    name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - '${_IMAGE_NAME}:${_IMAGE_TAG}'
+  - id: Deploy CloudRun
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - '${_APP_NAME}-${_ENV}'
+      - '--image'
+      - '${_IMAGE_NAME}:${_IMAGE_TAG}'
+      - '--region'
+      - '${_REGION}'
+      - '--port'
+      - '${_PORT}'
+
+images:
+  - ${_IMAGE_NAME}:${_IMAGE_TAG}
+
+options:
+  dynamicSubstitutions: true
+
+tags:
+  - ${_APP_NAME}
+  - ${_ENV}
+
+substitutions:
+  _IMAGE_NAME: asia-southeast1-docker.pkg.dev/${PROJECT_ID}/${_ENV}/${_APP_NAME}
+  _IMAGE_TAG: latest
+  _ENV: ${BRANCH_NAME}
+  _APP_NAME: admin-frontend
+  _PORT: '3000'
+  _REGION: asia-southeast2
+  _K8S_YAML_PATH: ./deployment/item/k8s/deployment.yaml
+  _GKE_LOCATION: asia-southeast1
+  _GKE_CLUSTER: phygital
+  _APP_CPU: '0.25'
+  _APP_RAM: '0.5G'
